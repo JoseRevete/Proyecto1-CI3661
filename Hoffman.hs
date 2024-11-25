@@ -13,6 +13,7 @@ import Data.Map (Map)
 
 data Hoffman = Hoja Char | Nodo Hoffman Hoffman deriving (Eq)
 
+-- Instancias
 instance Show Hoffman where
     show (Hoja c) = "Hoja " ++ show c
     show (Nodo izq der) = "Nodo (" ++ show izq ++ ") (" ++ show der ++ ")"
@@ -26,6 +27,7 @@ instance Read Hoffman where
                                             (der, rest'') <- reads rest']
             _ -> []
 
+-- Funciones de construccion:
 nuevoHoffman :: Char -> Hoffman
 nuevoHoffman c = Hoja c
 
@@ -36,6 +38,7 @@ obtenerCaracter :: Hoffman -> Char
 obtenerCaracter (Hoja c) = c
 obtenerCaracter _ = error "El árbol no es una hoja"
 
+-- Funciones de acceso
 arbolIzquierdo :: Hoffman -> Hoffman
 arbolIzquierdo (Nodo izq _) = izq
 arbolIzquierdo _ = error "El árbol no es una rama"
@@ -44,6 +47,7 @@ arbolDerecho :: Hoffman -> Hoffman
 arbolDerecho (Nodo _ der) = der
 arbolDerecho _ = error "El árbol no es una rama"
 
+--Funciones de transformacion:
 codificacion :: Hoffman -> Map Char String
 codificacion = codificar ""
 

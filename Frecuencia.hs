@@ -1,4 +1,10 @@
-module Frecuencia where
+module Frecuencia (
+  Frecuencia(..),
+  iniciarFrecuencia,
+  contar,
+  valor,
+  frecuencia
+) where
 
 newtype Frecuencia a = Frecuencia (a, Int)
     deriving (Show, Eq)
