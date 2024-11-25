@@ -47,7 +47,7 @@ arbolDerecho :: Hoffman -> Hoffman
 arbolDerecho (Nodo _ der) = der
 arbolDerecho _ = error "El árbol no es una rama"
 
---Funciones de transformacion:
+-- Funciones de transformacion:
 codificacion :: Hoffman -> Map Char String
 codificacion = codificar ""
 
