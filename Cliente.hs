@@ -3,7 +3,7 @@ module Main(main) where
 import RARisimo(frecuencias, ganadores, hoffman, rarisimo)
 import Control.Monad
 import System.IO
-import Hoffman
+import System.Directory
 import Data.Map
 
 main :: IO()
@@ -35,14 +35,22 @@ codificar :: IO()
 codificar = do
     putStrLn "\nInserte el PATH del archivo a codificar:"
     path <- getLine
-    file <- openFile path ReadMode
-    contents <- hGetContents file
-    let m = rarisimo contents
-    let path_raro = path ++ ".raro"
+    exists <- doesFileExist path 
+    if exists
+        then do
+        file <- openFile path ReadMode
+        contents <- hGetContents file
+        let rep_arbol = hoffman contents
+        let m = rarisimo contents
+        let path_raro = path ++ ".raro"
+
+        let b = iterar_string contents m
     
-    let b = iterar_string contents m
-    
-    writeFile path_raro b
+        writeFile path_raro (show (rep_arbol) ++ "\n" ++ b)
+        putStrLn $ "Se ha creado el nuevo archivo comprimido " ++ path_raro
+
+    else putStrLn "El archivo no existe" 
+
 
 
 iterar_string :: String -> Map Char String -> String
