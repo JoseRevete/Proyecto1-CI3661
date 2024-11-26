@@ -2,6 +2,11 @@
 
 Este proyecto implementa un algoritmo de codificación de Hoffman utilizando varios módulos en el lenguaje Haskell. Los módulos incluidos son `Frecuencia`, `Hoffman`, `RARisimo` y `Cliente`.
 
+- Para compilar: `ghc -o rarisimo Cliente.hs`
+
+- Para ejecutar: `./rarisimo`
+
+
 ## Módulo Frecuencia
 
 El módulo `Frecuencia` proporciona un tipo de dato y funciones para manejar las ocurrencias para un valor de algun tipo comparable por igualdad. Este módulo es útil para contar la ocurrencia de elementos en una lista y acceder tanto a sus valores como a sus frecuencias.
