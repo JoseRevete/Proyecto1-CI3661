@@ -7,7 +7,7 @@ module Frecuencia (
 ) where
 
 newtype Frecuencia a = Frecuencia (a, Int)
-    deriving (Show, Eq)
+    deriving (Eq)
 
 -- Funciones de construccion:
 iniciarFrecuencia :: Eq a => a -> Frecuencia a
@@ -26,3 +26,6 @@ frecuencia (Frecuencia (_, n)) = n
 -- Instancias:
 instance Eq a => Ord (Frecuencia a) where
   compare f1 f2 = compare (frecuencia f1) (frecuencia f2)
+
+instance Show a => Show (Frecuencia a) where
+    show (Frecuencia (x, n)) = "Frecuencia (" ++ show x ++ ", " ++ show n ++ ")"
