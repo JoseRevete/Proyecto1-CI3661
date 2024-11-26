@@ -36,19 +36,27 @@ codificar = do
     putStrLn "\nInserte el PATH del archivo a codificar:"
     path <- getLine
     exists <- doesFileExist path 
+    --Si existe el archivo, entonces empieza el proceso de codificar
     if exists
         then do
+        
         file <- openFile path ReadMode
+        --Se almacena el contenido del archivo
         contents <- hGetContents file
+        --Se crea la representación del árbol de Hoffman correspondiente al contenido del archivo
         let rep_arbol = hoffman contents
+        --Se hace uso de rarisimo para obtener la representación binaria de cada carácter contenido en el archivo
         let m = rarisimo contents
         let path_raro = path ++ ".raro"
 
+        --Se convierte cada carácter de contenido en su representación binaria
         let b = iterar_string contents m
-    
+
+        --Se almacena dentro del archivo comprimido la representación del árbol de Hoffman y el contenido del archivo original en binario
         writeFile path_raro (show (rep_arbol) ++ "\n" ++ b)
         putStrLn $ "Se ha creado el nuevo archivo comprimido " ++ path_raro
 
+    --Si no existe el archivo, se le avisa al usuario 
     else putStrLn "El archivo no existe" 
 
 
