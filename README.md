@@ -1,11 +1,15 @@
 # Proyecto I: RARísimo
 
+Elaborador por:
+**Ian Garcia 19-10040**
+**Jesus Gutierrez 20-10332**
+**Jose Revete 19-10087**
+
 Este proyecto implementa un algoritmo de codificación de Hoffman utilizando varios módulos en el lenguaje Haskell. Los módulos incluidos son `Frecuencia`, `Hoffman`, `RARisimo` y `Cliente`.
 
 - Para compilar: `ghc -o rarisimo Cliente.hs`
 
 - Para ejecutar: `./rarisimo`
-
 
 ## Módulo Frecuencia
 
