@@ -97,4 +97,4 @@ Se verifica si el archivo existe. En tal caso se lee el contenido del archivo pa
 En construccion :smile:
 
 ### Analizar
-En construccion :smile:
+Solicita al usuario el path de un archivo y verifica si existe. Si el archivo existe, obtiene su tamaño original, lee su contenido y obtiene la representación binaria del contenido utilizando la función rarisimo. Luego calcula el tamaño del archivo codificado y el porcentaje de ganancia o pérdida en tamaño al codificar el archivo. Finalmente, presenta un reporte con el tamaño del archivo original, el tamaño del archivo codificado y el porcentaje de ganancia o pérdida. Si el archivo no existe, informa al usuario que el archivo no existe.

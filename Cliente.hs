@@ -20,7 +20,7 @@ main = do
         else if (line == "Decodificar")
             then putStrLn "En construcción"
         else if (line == "Analizar")
-            then putStrLn "En construcción"
+            then analizar
 
         else putStrLn "\nOpción invalida"
 
@@ -59,6 +59,35 @@ codificar = do
     --Si no existe el archivo, se le avisa al usuario 
     else putStrLn "El archivo no existe" 
 
+analizar :: IO()
+analizar = do
+    putStrLn "\nInserte el PATH del archivo a analizar:"
+    path <- getLine
+    exists <- doesFileExist path
+    if exists
+        then do
+        -- Obtener el tamaño del archivo original
+        originalSize <- withFile path ReadMode hFileSize
+
+        -- Leer el contenido del archivo
+        contents <- readFile path
+
+        -- Obtener la representación binaria del contenido
+        let m = rarisimo contents
+        let b = iterar_string contents m
+
+        -- Calcular el tamaño del archivo codificado
+        let encodedSize = fromIntegral (length b) / 8 + fromIntegral (length (show (hoffman contents)))
+
+        -- Calcular el porcentaje de ganancia o pérdida
+        let gain = ((fromIntegral originalSize - encodedSize) / fromIntegral originalSize) * 100
+
+        -- Presentar el reporte
+        putStrLn $ "Tamaño del archivo original: " ++ show originalSize ++ " bytes"
+        putStrLn $ "Tamaño del archivo codificado: " ++ show encodedSize ++ " bytes"
+        putStrLn $ "Porcentaje de ganancia/pérdida: " ++ show gain ++ "%"
+
+    else putStrLn "El archivo no existe"
 
 
 iterar_string :: String -> Map Char String -> String
