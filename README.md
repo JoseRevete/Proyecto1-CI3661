@@ -75,8 +75,21 @@ Calcula la cantidad de ocurrencias de cada uno de los caracteres de una cadena d
 - `ganadores :: [Frecuencia Char] -> Maybe (Frecuencia Char, Frecuencia Char, [Frecuencia Char])`\
 Encuentra los dos elementos con las frecuencias más bajas en una lista de frecuencias y devuelve una tupla con estos dos elementos y la lista restante.
 
--`hoffman :: String -> Maybe Hoffman`\
+- `hoffman :: String -> Maybe Hoffman`\
 Construye una representacion de la cadena como árbol de Hoffman a partir de la frecuencia de cada caracter de la misma. Devuelve Nothing si la cadena está vacía.
 
 - `rarisimo :: String -> Map Char String`\
 Genera el mapa de codificación de Hoffman para una cadena dada a partir del arbol que genera la funcion `hoffman` y calculando su codificacion mediante la funcion `codificacion` del modulo `Hoffman`.
+
+## Cliente
+
+El módulo `Cliente` proporciona una interfaz de línea de comandos para interactuar con el algoritmo de codificación de Hoffman, permitiendole al usuario codificar, decodificar y analizar archivos de texto.
+
+### Codificar
+Se verifica si el archivo existe. En tal caso se lee el contenido del archivo para crear su representacion en arbol de Hoffman usando la funcion `hoffman` del modulo `Hoffman`. Luego para la codificacion de cada caracter, se utiliza la funcion `rarisimo` del modulo `RARisimo` para generar la cadena codificada. Se genera la nueva ruta para el archivo codificado añadiendo la extensión `.raro` a la ruta original. Finalmente se escribe en el nuevo archivo codificado la representación del árbol de Huffman y la cadena codificada.
+
+### Decodificar
+En construccion :smile:
+
+### Analizar
+En construccion :smile:
