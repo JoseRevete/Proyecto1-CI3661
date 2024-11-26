@@ -86,7 +86,7 @@ Genera el mapa de codificación de Hoffman para una cadena dada a partir del arb
 El módulo `Cliente` proporciona una interfaz de línea de comandos para interactuar con el algoritmo de codificación de Hoffman, permitiendole al usuario codificar, decodificar y analizar archivos de texto.
 
 ### Codificar
-Se verifica si el archivo existe. En tal caso se lee el contenido del archivo para crear su representacion en arbol de Hoffman usando la funcion `hoffman` del modulo `Hoffman`. Luego para la codificacion de cada caracter, se utiliza la funcion `rarisimo` del modulo `RARisimo` para generar la cadena codificada. Se genera la nueva ruta para el archivo codificado añadiendo la extensión `.raro` a la ruta original. Finalmente se escribe en el nuevo archivo codificado la representación del árbol de Huffman y la cadena codificada.
+Se verifica si el archivo existe. En tal caso se lee el contenido del archivo para crear su representacion en arbol de Hoffman usando la funcion `hoffman` del modulo `Hoffman`. Luego para la codificacion de cada caracter, se utiliza la funcion `rarisimo` del modulo `RARisimo` para generar la cadena codificada. Se genera la nueva ruta para el archivo codificado añadiendo la extensión `.raro` a la ruta original. Finalmente se escribe en el nuevo archivo codificado la representación del árbol de Hoffman y la cadena codificada.
 
 ### Decodificar
 En construccion :smile:
