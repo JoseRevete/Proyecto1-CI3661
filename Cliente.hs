@@ -3,7 +3,8 @@ module Main(main) where
 import RARisimo(frecuencias, ganadores, hoffman, rarisimo)
 import Control.Monad
 import System.IO
-
+import Hoffman
+import Data.Map
 
 main :: IO()
 main = do
@@ -36,6 +37,17 @@ codificar = do
     path <- getLine
     file <- openFile path ReadMode
     contents <- hGetContents file
-    --a <- rarisimo contents
-    putStrLn contents
+    let m = rarisimo contents
+    let path_raro = path ++ ".raro"
+    
+    let b = iterar_string contents m
+    
+    writeFile path_raro b
 
+
+iterar_string :: String -> Map Char String -> String
+iterar_string "" m = ""
+iterar_string (x:xs) m = do
+    let z = Data.Map.lookup x m
+
+    (maybe "" id z) ++ iterar_string xs m
