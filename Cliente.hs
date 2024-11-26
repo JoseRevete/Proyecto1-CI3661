@@ -18,9 +18,9 @@ main = do
 
 
         else if (line == "Decodificar")
-            then putStrLn "A"
+            then putStrLn "En construcción"
         else if (line == "Analizar")
-            then putStrLn "p"
+            then putStrLn "En construcción"
 
         else putStrLn "\nOpción invalida"
 
